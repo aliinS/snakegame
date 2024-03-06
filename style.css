@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+}
+
+#game-board td {
+    border: gray solid 1px;
+    width: 8px;
+    height: 8px;
+}
+
+#game-board {
+    border-collapse: collapse;
+}
+
+#container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.snake {
+    background-color: blueviolet;
+}
