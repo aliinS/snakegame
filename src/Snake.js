@@ -31,28 +31,54 @@ class Snake {
         return this.coordinates;
     }
 
-    move () {
+    calculateNewHead ( boardSize) {
         let [y, x] = this.coordinates[0].split('-');
 
         switch (this.direction) {
             case 'u' :
-                y--;
+                if ( y == 0) {
+                    y = boardSize - 1;
+                }
+                else {
+                    y--;
+                };
                 break;
 
             case 'd' :
-                y++;
+                if ( y == boardSize -1) {
+                    y = 0;
+                }
+                else {
+                    y++;
+                };
                 break;
 
             case 'l' :
-                x--;
+                if ( x == 0) {
+                    x = boardSize - 1;
+                }
+                else {
+                    x--;
+                };
                 break;
 
             case 'r' :
-                x++;
+                if ( x == boardSize -1) {
+                    x = 0;
+                }
+                else {
+                    x++;
+                };
                 break;
         }
-        const c = y + '-' + x;
+        return y + '-' + x;
+    }
+    
+    unshift(c){
         this.coordinates.unshift(c);
+    }
+
+    pop() {
         this.coordinates.pop();
     }
 }

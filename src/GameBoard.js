@@ -20,14 +20,19 @@ class GameBoard {
                 const cellTd = document.createElement('td');
                 const id = i + '-' + j;
                 cellTd.setAttribute('id', id);
-
+                
+                
                 if ( snakeCoordinates.includes(id) ) {
+                    cellTd.innerText = snakeCoordinates.indexOf(id)===0 ? '🐸' : '🟢';
                     cellTd.classList.add('snake');
+                    
                 }
-
+                
                 const foodCoordinates = food.y + '-' + food.x;
                 if (id ==foodCoordinates) {
-                    cellTd.classList.add('food');
+                    cellTd.innerText = food.getEmoji();
+                    // cellTd.classList.add('food');
+
                 }
 
                 rowTd.append(cellTd);
@@ -35,6 +40,11 @@ class GameBoard {
 
             this.gameBoardTable.append(rowTd);
         }
+    }
+
+    gameOver() {
+        const gameOverDiv = document.getElementById('game-over');
+        gameOverDiv.classList.remove('hidden');
     }
 }
 
